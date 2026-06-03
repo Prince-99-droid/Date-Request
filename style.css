@@ -1,0 +1,194 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#fff5f7,#ffe3ea);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow-x:hidden;
+    padding:20px;
+}
+
+.container{
+    width:95%;
+    max-width:800px;
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+h1{
+    color:#ff4d6d;
+    margin-bottom:25px;
+}
+
+h2{
+    color:#ff4d6d;
+    margin-bottom:20px;
+}
+
+.buttons{
+    position:relative;
+    height:150px;
+}
+
+button{
+    padding:15px 25px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+}
+
+#yes{
+    background:#28a745;
+    color:white;
+}
+
+#yes:hover{
+    transform:scale(1.05);
+}
+
+#no{
+    background:#dc3545;
+    color:white;
+    position:absolute;
+    margin-left:20px;
+}
+
+#formSection{
+    display:none;
+    margin-top:30px;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:8px;
+    font-weight:bold;
+    text-align:left;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.food-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+
+.food-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:all .3s ease;
+    box-shadow:0 3px 12px rgba(0,0,0,.1);
+    position: relative;
+}
+
+.food-card:hover{
+    transform:translateY(-5px);
+}
+
+.food-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.food-card p{
+    padding:12px;
+    font-weight:bold;
+}
+
+.food-card input{
+    display:none;
+}
+
+.food-card input:checked + img{
+    border:4px solid #ff4d6d;
+}
+
+.food-card:has(input:checked) {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,77,109,.5);
+}
+
+
+.food-note{
+    color:#777;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.submitBtn{
+    background:#ff4d6d;
+    color:white;
+    width:100%;
+    margin-top:20px;
+}
+
+.submitBtn:hover{
+    opacity:.9;
+}
+
+
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:24px;
+    animation:floatUp 6s linear forwards;
+    pointer-events:none;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-100vh);
+        opacity:0;
+    }
+}
+
+@media(max-width:600px){
+
+    .food-grid{
+
+         grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    button{
+        font-size:16px;
+    }
+
+    .food-card img{
+        height: 120px;
+    }
+}
